@@ -1,61 +1,62 @@
-/* Reset some default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* General Body Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    padding: 20px;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-/* Header Styles */
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-    text-align: center;
+.payment-container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
 }
 
 h1 {
-    font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-/* Main Content Styles */
-main {
-    text-align: center;
-    margin-top: 40px;
+.payment-form {
+  display: flex;
+  flex-direction: column;
 }
 
-p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+.payment-form label {
+  margin: 10px 0 5px;
+  color: #555;
 }
 
-/* Button Styling */
-button {
-    background-color: #d5dbdb;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.payment-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
 }
 
-button:hover {
-    background-color: #005f73;
+.payment-form button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Footer Styles */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.8rem;
-    color: #888;
+.payment-form button:hover {
+  background-color: #16a085;
 }
