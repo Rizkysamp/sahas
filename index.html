@@ -1,249 +1,32 @@
-
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>TOKO SAHAS</title>
-  <style>
-    :root {
-      --primary: #0a0f3c;
-      --bg: #0b132b;
-      --text: #ffffff;
-      --card: #1c2541;
-      --accent: #40f5af;
-    }body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-header {
-  background-color: var(--primary);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-nav {
-  display: flex;
-  gap: 1rem;
-}
-
-nav button {
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-nav button:hover {
-  background: #919695;
-}
-
-main {
-  flex-grow: 1;
-  padding: 2rem;
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-
-section, aside {
-  background: var(--card);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0,0,0,0.3);
-}
-
-h2 {
-  margin-top: 0;
-}
-
-input, select {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 0.75rem;
-  border-radius: 4px;
-  border: none;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-button:disabled {
-  background: #888;
-  cursor: not-allowed;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  margin-bottom: 1rem;
-  background: #274060;
-  padding: 0.8rem;
-  border-radius: 8px;
-}
-
-img {
-  max-width: 100%;
-  border-radius: 8px;
-  margin: 0.5rem 0;
-}
-
-pre {
-  white-space: pre-wrap;
-  background: #274060;
-  padding: 1rem;
-  border-radius: 8px;
-  max-height: 150px;
-  overflow-y: auto;
-}
-
-#loginScreen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to bottom, #0b132b, #1c2541);
-  min-height: 100vh;
-}
-
-.login-card {
-  background: var(--card);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 0 30px rgba(94, 99, 99, 0.2);
-  text-align: center;
-  max-width: 400px;
-  width: 100%;
-}
-
-.login-card h2 {
-  margin-bottom: 1rem;
-}
-
-.login-card input {
-  margin-bottom: 1rem;
-}
-
-#mainContent, #adminPanel, header {
-  display: none;
-}
-
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halaman Pembayaran</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="loginScreen">
-    <div class="login-card">
-      <h2> MASUK TOKO SAHAS</h2>
-      <input type="text" id="loginUsername" placeholder="USERNAME" />
-      <input type="password" id="loginPassword" placeholder="PASSWORD" />
-      <button onclick="login()">MASUK</button>
-    </div>
-  </div>  <header>
-    <h1>TOKO SAHAS</h1>
-    <nav>
-      <button onclick="toggleTheme()">🌓 TEMA</button>
-      <button onclick="logout()">LOGOUT</button>
-    </nav>
-  </header>  <main id="mainContent">
-    <section>
-  <div class="container">
-    <div class="product">
-  <img src="https://h.top4top.io/p_3440li9dw0.jpg" alt="PRODUK 1"
-      <h2>CONTROL PANEL</h2>
-      <div class="PRICE">Rp 5.000 - 12.000</div>
-      <a href="https://wa.me/6288991233030?text=HALO SAYA MAU BELI CONTROL PANEL BANG"><button>ORDER NOW</button></a>
+  <div class="payment-container">
+    <h1>Formulir Pembayaran</h1>
+    <form action="/submit-payment" method="POST" class="payment-form">
+      <label for="name">Nama Lengkap</label>
+      <input type="text" id="name" name="name" required />
 
-    </div>
-      <img src=https://h.top4top.io/p_3440li9dw0.jpg>
-    <h2>SEWA BOT</h2>
-            <div class="PRICE">Rp 5.000</div>
-      <a href="https://wa.me/6288991233030?text=HALO SAYA MAU SEWA BOT NYA BANG"><button>ORDER NOW</button></a>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
 
-    </section>
-    <aside>
-      <h2>NOMOR ADMIN</h2>
-      <a href="https://wa.me/6288991233030"><button>OWNER</button></a>
+      <label for="card-number">Nomor Kartu</label>
+      <input type="text" id="card-number" name="card-number" maxlength="16" required />
 
-    </aside>
-    <section id="adminPanel">
-      <h2>Admin Panel</h2>
-      <input id="newName" placeholder="Nama Produk" />
-      <input id="newPrice" type="number" placeholder="Harga" />
-      <input id="newStock" type="number" placeholder="Stok" />
-      <select id="newVisibility">
-        <option value="public">Publik</option>
-        <option value="private">Privat</option>
-      </select>
-      <input id="newImage" type="file" accept="image/*" />
-      <button onclick="addProduct()">Tambah Produk</button>
-    </section>
-    <section>
-<p class="centered">SAHAS G4SYOU.</p>
-    </section>
-  </main>  <script>
-    const users = {
-      admin: { password: "admin", role: "admin" },
-      user: { password: "1234", role: "user" }
-    };
+      <label for="expiry">Tanggal Kedaluwarsa</label>
+      <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required />
 
-    let currentUser = null;
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" name="cvv" maxlength="3" required />
 
-    function login() {
-      const username = document.getElementById("loginUsername").value.trim();
-      const password = document.getElementById("loginPassword").value.trim();
-      if (users[username] && users[username].password === password) {
-        currentUser = username;
-        document.getElementById("loginScreen").style.display = "none";
-        document.querySelector("header").style.display = "flex";
-        document.getElementById("mainContent").style.display = "grid";
-        document.getElementById("adminPanel").style.display = users[username].role === "admin" ? "block" : "none";
-      } else {
-        alert("Username atau password salah.");
-      }
-    }
-
-    function logout() {
-      currentUser = null;
-      document.getElementById("loginScreen").style.display = "flex";
-      document.querySelector("header").style.display = "none";
-      document.getElementById("mainContent").style.display = "none";
-      document.getElementById("adminPanel").style.display = "none";
-      document.getElementById("loginUsername").value = "";
-      document.getElementById("loginPassword").value = "";
-    }
-
-    function toggleTheme() {
-      const html = document.documentElement;
-      html.dataset.theme = html.dataset.theme === "light" ? "dark" : "light";
-      document.body.style.backgroundColor = html.dataset.theme === "light" ? "#ffffff" : "#0b132b";
-    }
-  </script></body>
+      <button type="submit">Bayar Sekarang</button>
+    </form>
+  </div>
+</body>
 </html>
-</head>
